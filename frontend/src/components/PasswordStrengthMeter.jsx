@@ -4,7 +4,7 @@ import { Check, X } from "lucide-react"
 const PasswordCriteria = ({ password }) => {
 
     const criteria = [
-        { label: "Password must be at least 6 characters", met: password.length >= 6 },
+        { label: "Password must be at least 8 characters", met: password.length >= 8 },
         { label: "Contains uppercase letter", met: /[A-Z]/.test(password) },
         { label: "Contains lowercase letter", met: /[a-z]/.test(password) },
         { label: "Contains a number", met: /\d/.test(password) },
@@ -33,7 +33,7 @@ const PasswordStrengthMeter = ({ password }) => {
 
     const getStrength = (pass) => {
         let strength = 0;
-        if (pass.length >= 6) strength++;
+        if (pass.length >= 8) strength++;
         if (pass.match(/[a-z]/)) strength++;
         if (pass.match(/[A-Z]/)) strength++;
         if (pass.match(/\d/)) strength++;
@@ -47,16 +47,17 @@ const PasswordStrengthMeter = ({ password }) => {
         if (strength === 1) return "bg-red-400";
         if (strength === 2) return "bg-orange-400";
         if (strength === 3) return "bg-yellow-500";
-        if (strength === 4) return "bg-yellow-400";
+        if (strength === 4) return "bg-yellow-200";
         return "bg-green-500";
     };
 
     const getStrengthText = (strength) => {
         if (strength === 0) return "Very Weak";
         if (strength === 1) return "Weak";
-        if (strength === 2) return "Medium";
-        if (strength === 3 || strength === 4) return "Strong";
-        return "Very Strong";
+        if (strength === 2) return "Not bad";
+        if (strength === 3) return "Strong";
+        if (strength === 4) return "Very Strong";
+        return "Secure";
     };
 
     return (
@@ -67,10 +68,10 @@ const PasswordStrengthMeter = ({ password }) => {
             </div>
 
             <div className="flex space-x-1">
-                {[...Array(4)].map((_, index) => (
+                {[...Array(5)].map((_, index) => (
                     <div
                         key={index}
-                        className={`h-1 w-1/4 rounded-full transition-colors duration-300
+                        className={`h-1 w-1/5 rounded-full transition-colors duration-300
                         ${index < strength ? getColor(strength) : "bg-gray-600"}`}
                     />
                 ))}

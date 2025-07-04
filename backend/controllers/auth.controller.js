@@ -154,8 +154,8 @@ export const forgotPassword = async (req, res) => {
         // Generate reset password token
         //const resetToken = crypto.randomBytes(20).toString('base64url')
         const resetToken = crypto.randomBytes(20).toString("hex");
-        // const hashedResetToken = await bcryptjs.hash(resetToken, 10);
-        // const hexHash = Buffer.from(hashedResetToken).toString('hex');
+        //const hashedResetToken = await bcryptjs.hash(resetToken, 10);
+        //const hexHash = Buffer.from(hashedResetToken).toString('hex');
         const resetTokenExpiresAt = Date.now() + 1 * 60 * 60 * 1000; // 1 hour
 
         user.resetPasswordToken = resetToken;
@@ -215,6 +215,28 @@ export const resetPassword = async (req, res) => {
 
     } catch (error) {
         console.log("Error in resetPassword: ", error);
+        res.status(400).json({
+            success: false,
+            message: error.message
+        });
+    }
+}
+
+export const checkAuth = async (req, res) => {
+    try {
+        const user = await User.findById(req.userId).select("-password");
+        if (!user) {
+            return res.status(400).json({
+                success: false,
+                message: "User not found"
+            });
+        }
+        res.status(200).json({
+            success: true,
+            user
+        });
+    } catch (error) {
+        console.log("Error in checkAuth: ", error);
         res.status(400).json({
             success: false,
             message: error.message

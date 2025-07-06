@@ -21,8 +21,10 @@ app.use(cookieParser()); // allow us to parse incoming cookies
 
 app.use("/api/auth", authRoutes)
 
-app.listen(PORT, () => {
-    connectDB();
-    console.log('Server is running on port 5000');
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log("Server is running on port 5000");
+    });
 });
+
 

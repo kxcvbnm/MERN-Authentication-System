@@ -1,9 +1,10 @@
 import { Route, Routes, Navigate } from "react-router-dom";
-
 import HomePage from "./pages/HomePage";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 import EmailVerificationPage from "./pages/EmailVerificationPage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
 import FloatingShape from "./components/FloatingShape";
 import { Toaster } from "react-hot-toast";
 import { useAuthStore } from "./store/authStore";
@@ -37,7 +38,7 @@ const RedirectAuthenticatedUser = ({ children }) => {
 
 function App() {
 
-  const { isCheckingAuth, checkAuth, isAuthenticated, user } = useAuthStore();
+  const { isCheckingAuth, checkAuth } = useAuthStore();
 
   useEffect(() => {
     checkAuth();
@@ -70,6 +71,17 @@ function App() {
             <LoginPage />
           </RedirectAuthenticatedUser>} />
         <Route path="/verify-email" element={<EmailVerificationPage />} />
+        <Route path="/forgot-password"
+          element={<RedirectAuthenticatedUser>
+            <ForgotPasswordPage />
+          </RedirectAuthenticatedUser>} />
+
+        <Route
+          path="/reset-password/:token"
+          element={<RedirectAuthenticatedUser>
+            <ResetPasswordPage />
+          </RedirectAuthenticatedUser>}
+        />
       </Routes>
       <Toaster />
 

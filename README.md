@@ -1,7 +1,7 @@
-Authentication Learning Project
+You can try it here: https://mern-auth-5zfv.onrender.com
 
 About the Project
-Welcome to the Authentication Learning Project! This web application was developed to deepen understanding of authentication mechanisms, workflows, and API integration.
+This is my Authentication Learning Project! This web application was developed to deepen understanding of authentication mechanisms, workflows, and API integration.
 It focuses on implementing features like user registration, login, logout, password reset, and email verification, with an emphasis on secure practices such as JSON Web Tokens (JWT) and user state management.
 
 Key Features
@@ -17,4 +17,3 @@ ExpressJS
 ReactJS
 Node.js
 
-You can try it here: https://mern-auth-5zfv.onrender.com

@@ -1,4 +1,4 @@
-You can try it here: https://mern-auth-5zfv.onrender.com
+You can visit it here: https://mern-auth-5zfv.onrender.com
 
 About the Project:
 This is my Authentication Learning Project! This web application was developed to deepen understanding of authentication mechanisms, workflows, and API integration.

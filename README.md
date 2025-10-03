@@ -54,10 +54,10 @@ MERN-Authentication-System/
 
 ## 🧪 API Endpoints
 
-POST   /api/auth/register
-POST   /api/auth/login
-POST   /api/auth/logout
-GET    /api/auth/verify-email?token=...
-POST   /api/auth/forgot-password
-POST   /api/auth/reset-password
-GET    /api/users/me           # get current profile (auth required)
+- POST   /api/auth/register
+- POST   /api/auth/login
+- POST   /api/auth/logout
+- GET    /api/auth/verify-email?token=...
+- POST   /api/auth/forgot-password
+- POST   /api/auth/reset-password
+- GET    /api/users/me           # get current profile (auth required)

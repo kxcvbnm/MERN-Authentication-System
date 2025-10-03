@@ -17,7 +17,15 @@ Live demo: **https://mern-auth-5zfv.onrender.com**
 
 ## 🧰 Tech Stack
 
-- **MongoDB**, **Express.js**, **React**, **Node.js**
+- **MongoDB** — Stores user accounts and auth-related data.
+- **Express.js** — REST API framework for auth routes and middleware.
+- **React** — Frontend UI for register/login/reset flows and protected pages.
+- **Node.js** — Runtime for the backend server.
+
+---
+
+### 📧 Email (Dev)
+- **Mailtrap** — Test email sending (verification/reset) safely
 
 ---
 
@@ -31,6 +39,8 @@ MERN-Authentication-System/
 └─ README.md
 ```
 
+---
+
 ## 🔐 Authentication Flow
 
 1. **Register** → Save user (unverified) → Send verification email with token
@@ -39,6 +49,8 @@ MERN-Authentication-System/
 4. **Protected Routes** → Verify JWT on each request
 5. **Forgot Password** → Email reset link → Validate token → Set new password
 6. **Logout** → Invalidate client session
+
+---
 
 ## 🧪 API Endpoints
 

@@ -21,7 +21,7 @@ Live demo: **https://mern-auth-5zfv.onrender.com**
 
 ---
 
-## 🗂️ Monorepo Structure
+## 🗂️ Structure
 
 ``
 MERN-Authentication-System/
@@ -30,3 +30,22 @@ MERN-Authentication-System/
 ├─ package.json # (root) 
 └─ README.md
 ``
+
+## 🔐 Authentication Flow
+
+1. Register → Save user (unverified) → Send verification email with token
+2. Verify Email → Activate account on token confirmation
+3. Login → Issue JWT (HTTP-only cookie or Authorization header)
+4. Protected Routes → Verify JWT on each request
+5. Forgot Password → Email reset link → Validate token → Set new password
+6. Logout → Invalidate client session
+
+## 🧪 API Endpoints
+
+POST   /api/auth/register
+POST   /api/auth/login
+POST   /api/auth/logout
+GET    /api/auth/verify-email?token=...
+POST   /api/auth/forgot-password
+POST   /api/auth/reset-password
+GET    /api/users/me           # get current profile (auth required)

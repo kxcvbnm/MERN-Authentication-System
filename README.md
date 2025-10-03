@@ -23,22 +23,22 @@ Live demo: **https://mern-auth-5zfv.onrender.com**
 
 ## 🗂️ Structure
 
-``
+```
 MERN-Authentication-System/
-├─ backend/ # Node.js/Express API, auth logic, email & tokens
-├─ frontend/ # React app (UI, forms, protected routes)
-├─ package.json # (root) 
+├─ backend/        # Node.js/Express API, auth logic, email & tokens
+├─ frontend/       # React app (UI, forms, protected routes)
+├─ package.json    # (root)
 └─ README.md
-``
+```
 
 ## 🔐 Authentication Flow
 
-1. Register → Save user (unverified) → Send verification email with token
-2. Verify Email → Activate account on token confirmation
-3. Login → Issue JWT (HTTP-only cookie or Authorization header)
-4. Protected Routes → Verify JWT on each request
-5. Forgot Password → Email reset link → Validate token → Set new password
-6. Logout → Invalidate client session
+1. **Register** → Save user (unverified) → Send verification email with token
+2. **Verify Email** → Activate account on token confirmation
+3. **Login** → Issue JWT (HTTP-only cookie or Authorization header)
+4. **Protected Routes** → Verify JWT on each request
+5. **Forgot Password** → Email reset link → Validate token → Set new password
+6. **Logout** → Invalidate client session
 
 ## 🧪 API Endpoints
 
